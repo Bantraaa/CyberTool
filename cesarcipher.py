@@ -22,11 +22,19 @@ def cesar_menu():
 
                 if character.isupper():
                     indexn = upper_letters.index(character) # Check if the character is uppercase and control which letter then encrypt it
-                    encrypted_message += upper_letters[indexn + degree]
+                    if (indexn + degree) > 25:
+                        indexn = indexn - degree
+                        encrypted_message += upper_letters[indexn]
+                    else:
+                        encrypted_message += upper_letters[indexn + degree]
 
                 elif character.islower():
                     indexn = lower_letters.index(character) # Check if the character is lowercase and control which letter then encrypt it
-                    encrypted_message += lower_letters[indexn + degree]
+                    if (indexn + degree) > 25:
+                        indexn = indexn - degree
+                        encrypted_message += lower_letters[indexn]
+                    else:
+                        encrypted_message += lower_letters[indexn + degree]
 
                 else:
                     encrypted_message += character
